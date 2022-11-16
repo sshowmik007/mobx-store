@@ -68,10 +68,14 @@ const Header = observer(() => {
 <Link to="/login" className='border border-white rounded-full font-bold px-8 py-2'>
       Login
 </Link>
+
 <Link to="/signup" className>
 <button class="border border-white rounded-full font-bold px-8 py-2">
   Sign-Up
 </button>
+</Link>
+<Link to="/checkout" className='border border-white rounded-full font-bold px-8 py-2'>
+      Checkout
 </Link>
   </>
 )}

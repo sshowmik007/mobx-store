@@ -21,7 +21,7 @@ export class LoginStore {
     this.loginToken = ""
     this.userDetails = null
   }
-//   action
+  //  action
   async fetchUserToken(userName, password) {
     const data = {
       username: userName,
