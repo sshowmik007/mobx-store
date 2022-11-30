@@ -2,10 +2,11 @@ import { find } from "lodash";
 import { observer } from "mobx-react-lite";
 import { useParams } from "react-router-dom";
 import { useStore } from "../Hooks/useStore";
+import { CartStore } from "../store/CartStore";
 
 const ProductView = observer(() => {
     const {
-        rootStore: { productsStore }
+        rootStore: { productsStore,CartStore }
       } = useStore()
 
     const { productId } = useParams()
@@ -15,7 +16,9 @@ const ProductView = observer(() => {
         p => p.id.toString() === productId
       )
 
-    const onClickBuyNow = () => {}
+    const onClickBuyNow = () => {
+        CartStore.addProductInCart(product);
+    }
 
   return (
     <>
@@ -42,7 +45,7 @@ const ProductView = observer(() => {
                         <span class="font-bold text-5xl leading-none align-baseline">{product?.price}</span>
                     </div>
                     <div class="inline-block align-bottom">
-                        <button onClick={onClickBuyNow} class="bg-yellow-300 opacity-75 hover:opacity-100 text-yellow-900 hover:text-gray-900 rounded-full px-10 py-2 font-semibold"><i class="mdi mdi-cart -ml-2 mr-2"></i> BUY NOW</button>
+                        <button onClick={onClickBuyNow} class="bg-yellow-300 opacity-75 hover:opacity-100 text-yellow-900 hover:text-gray-900 rounded-full px-10 py-2 font-semibold"><i class="mdi mdi-cart -ml-2 mr-2"></i> BUY NOW </button>
                     </div>
                 </div>
             </div>
